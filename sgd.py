@@ -28,3 +28,12 @@ def next_batch(X, y, batchSize):
 	for i in np.arange(0, X.shape[0], batchSize):
 		yield (X[i:i + batchSize], y[i:i + batchSize])
 
+# construct the argument parse and parse the arguments
+ap = argparse.ArgumentParser()
+ap.add_argument("-e", "--epochs", type=float, default=100,
+	help="# of epochs")
+ap.add_argument("-a", "--alpha", type=float, default=0.01,
+	help="learning rate")
+ap.add_argument("-b", "--batch-size", type=int, default=32,
+	help="size of SGD mini-batches")
+args = vars(ap.parse_args())
